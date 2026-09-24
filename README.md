@@ -13,7 +13,9 @@ The prototype consists of two main components:
 
 The generated CPEE process model sits between both components and controls the execution sequence.
 
-![Overall Architecture and Information Flow](docs/images/ArchitectureModel.png)
+<p align="center">
+    <img src="docs/images/ArchitectureModel.png" alt="Overall Architecture and Information Flow" width="350">
+</p>
 
 ## Repository Structure
 
