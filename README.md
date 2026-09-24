@@ -116,7 +116,7 @@ The `dist` directory is intentionally not stored in the repository and must be g
 4. Select `firefox-extension/manifest.json`.
 
 <p align="center">
-    <img src="docs/images/initialSidebar" alt="Firefox Activity Recorder sidebar after loading the extension" width="300">
+    <img src="docs/images/initialSidebar.png" alt="Firefox Activity Recorder sidebar after loading the extension" width="300">
 </p>
 
 Because this is loaded as a temporary extension, Firefox removes it when the browser is closed. Repeat the loading step after restarting Firefox.
