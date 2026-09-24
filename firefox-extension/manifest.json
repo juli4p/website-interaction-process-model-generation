@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Activity Recorder",
+  "version": "0.1.0",
+  "description": "Records browser interactions and generates CPEE testsets.",
+
+  "permissions": ["storage", "tabs", "activeTab"],
+
+  "host_permissions": ["<all_urls>"],
+
+  "sidebar_action": {
+    "default_title": "Activity Recorder",
+    "default_panel": "dist/sidebar/sidebar.html"
+  },
+
+  "background": {
+    "scripts": ["dist/background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}

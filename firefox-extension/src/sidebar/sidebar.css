@@ -1,0 +1,375 @@
+/* Colors */
+:root {
+  --background: #0f172a;
+  --card: #1e293b;
+  --text: #f8fafc;
+  --grey: #94a3b8;
+  --blue: #3b82f6;
+  --red: #ef4444;
+}
+
+* {
+  box-sizing: border-box; /* width is always the same */
+}
+
+body {
+  margin: 0;
+  min-width: 280px;
+  height: 100vh;
+  font-family: system-ui, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+}
+
+/* Headings */
+h3 {
+  margin: 16px 0 8px;
+  color: var(--grey);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.status {
+  min-width: 80px;
+}
+
+#dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--grey);
+}
+
+.recording #dot {
+  background: var(--red);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+#count {
+  color: var(--grey);
+  font-size: 12px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  background: var(--blue);
+}
+
+button:disabled {
+  background: #475569;
+  color: #94a3b8;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+#activityLogContainer {
+  flex: 1;
+  min-height: 0;
+  padding: 10px;
+  overflow: auto;
+  border-radius: 10px;
+  background: var(--card);
+  font-size: 11px;
+}
+.activity-event {
+  background: var(--background);
+  border-radius: 6px;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.activity-event__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 8px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.activity-event__header:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Change color when activity event details are expanded*/
+.activity-event--open .activity-event__header {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.activity-event__header input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.activity-event__number {
+  width: 24px;
+  color: var(--grey);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.activity-event__title {
+  flex: 1;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.activity-event__details {
+  padding: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.activity-event__details[hidden] {
+  display: none;
+}
+
+.activity-event__json {
+  max-height: 240px;
+  margin: 0;
+  padding: 8px;
+  overflow: auto;
+  border-radius: 4px;
+  background: var(--card);
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.activity-event__properties {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compact-event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.compact-event-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.compact-event-row__name {
+  color: var(--grey);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.compact-event-row__value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.compact-event-row__input {
+  width: 100%;
+  min-width: 0;
+  padding: 4px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: var(--text);
+  background: var(--card);
+  font: inherit;
+}
+
+.compact-event-row__input:focus {
+  border-color: var(--blue);
+  outline: none;
+}
+
+.compact-event-row__json {
+  max-height: 130px;
+  margin: 0;
+  padding: 6px;
+  overflow: auto;
+  border-radius: 4px;
+  background: var(--card);
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.compact-event-locators {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.compact-event-locators__list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.compact-event-locator {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+.compact-event-locator summary {
+  padding: 5px 6px;
+  color: var(--grey);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+
+.compact-event-locator .compact-event-row__json {
+  max-height: 160px;
+  border-radius: 0;
+}
+
+.activity-event__raw {
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 6px;
+}
+
+.activity-event__raw > summary {
+  color: var(--grey);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.compact-event-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-top: 4px;
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.compact-event-group__heading {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.compact-event-group__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.compact-selector-segment {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.compact-selector-segment__heading {
+  color: var(--grey);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.compact-selector-segment__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.compact-event-row__link {
+  color: LinkText;
+  text-decoration: underline;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.compact-event-row__link:hover {
+  text-decoration-thickness: 2px;
+}
+
+#manualActionControls {
+  margin-top: 8px;
+}
+
+#addActionPanel {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--card);
+}
+
+#addActionPanel select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+#screenshotOptions,
+#elementOptions {
+  margin-bottom: 10px;
+}
+
+#pickedElementInfo {
+  margin-top: 8px;
+  color: var(--grey);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}

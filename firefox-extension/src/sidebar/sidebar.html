@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+
+  <body>
+    <main>
+      <h3>Recording Status</h3>
+
+      <section id="statusRow" class="card">
+        <span id="dot"></span>
+
+        <div class="status">
+          <strong id="statusText">Idle</strong>
+          <div id="count"></div>
+        </div>
+
+        <div class="controls">
+          <button id="startpause">Start</button>
+          <button id="stop">Stop</button>
+        </div>
+      </section>
+
+      <h3>Import / Export</h3>
+
+      <section class="card controls">
+        <button id="importActivityLog">Import Activity Log</button>
+        <button id="downloadActivityLog">Export Activity Log</button>
+        <button id="downloadCpeeTestset">Export CPEE Testset</button>
+
+        <input
+          id="activityLogFileInput"
+          type="file"
+          accept=".json,application/json"
+          hidden
+        />
+      </section>
+
+      <h3>Activity Log</h3>
+
+      <div id="activityLogContainer"></div>
+
+      <div id="manualActionControls">
+        <button id="addActionButton">+ Add Action</button>
+
+        <div id="addActionPanel" hidden>
+          <select id="manualActionType">
+            <option value="screenshot">Screenshot</option>
+            <option value="element_outer_html">Get Element HTML</option>
+            <option value="navigate">Navigate</option>
+          </select>
+
+          <div id="screenshotOptions">
+            <label>
+              <input id="screenshotFull" type="checkbox" />
+              Full page
+            </label>
+          </div>
+
+          <div id="elementOptions" hidden>
+            <button id="pickElementButton">Pick Element</button>
+
+            <div id="pickedElementInfo">No element selected</div>
+          </div>
+
+          <div class="controls">
+            <button id="confirmAddActionButton">Add</button>
+            <button id="cancelAddActionButton">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="sidebar.js"></script>
+  </body>
+</html>

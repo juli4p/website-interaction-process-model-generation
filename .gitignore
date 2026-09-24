@@ -1,0 +1,29 @@
+# Local files and credentials
+.DS_Store
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.ruby-lsp/
+.idea/
+.vscode/
+*.code-workspace
+
+# Firefox extension
+/firefox-extension/node_modules/
+/firefox-extension/dist/
+/firefox-extension/web-ext-artifacts/
+
+# Ruby
+.bundle/
+/ferrum-server/vendor/bundle/
+
+# Runtime data
+/ferrum-server/logs/
+/ferrum-server/public/screenshots/
+/ferrum-server/public/archiv/
+/ferrum-server/public/debug/
+
+# Obsolete test/development files
+/ferrum-server/tests/
