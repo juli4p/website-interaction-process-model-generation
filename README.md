@@ -14,7 +14,7 @@ The prototype consists of two main components:
 The generated CPEE process model sits between both components and controls the execution sequence.
 
 <p align="center">
-    <img src="docs/images/ArchitectureModel.png" alt="Overall Architecture and Information Flow" width="350">
+    <img src="docs/images/ArchitectureModel.png" alt="Overall Architecture and Information Flow" width="500">
 </p>
 
 ## Repository Structure
@@ -115,7 +115,9 @@ The `dist` directory is intentionally not stored in the repository and must be g
 3. Select **Load Temporary Add-on**.
 4. Select `firefox-extension/manifest.json`.
 
-![Firefox Activity Recorder sidebar after loading the extension.](docs/images/initialSidebar.png)
+<p align="center">
+    <img src="docs/images/initialSidebar" alt="Firefox Activity Recorder sidebar after loading the extension" width="300">
+</p>
 
 Because this is loaded as a temporary extension, Firefox removes it when the browser is closed. Repeat the loading step after restarting Firefox.
 
