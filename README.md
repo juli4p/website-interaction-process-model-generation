@@ -170,7 +170,9 @@ To exclude an activity from the generated CPEE model, uncheck the checkbox on th
 
 For element-based interactions, the extension can highlight the currently resolved target element. This can be used to check and adjust recorded selectors before generating the CPEE model.
 
-![Expanded recorded activity with editable parameters and highlighted target element.](docs/images/ExpandedActivity.png)
+<p align="center">
+    <img src="docs/images/ExpandedActivity.png" alt="Expanded recorded activity with editable parameters and highlighted target element" width="500">
+</p>
 
 ### Manual Activities
 
@@ -217,7 +219,9 @@ Examples include:
 - additional service calls
 - processing data returned by browser activities
 
-![Generated process model after importing the testset into CPEE.](docs/images/cpeeModel.png)
+<p align="center">
+    <img src="docs/images/cpeeModel.svg" alt="Generated process model after importing the testset into CPEE" width="400">
+</p>
 
 ## 9. Execute the Process
 
